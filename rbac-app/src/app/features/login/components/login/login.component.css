@@ -1,0 +1,148 @@
+/* Login container */
+:host ::ng-deep .p-card {
+  border-radius: 10px;
+  background-color: #ffffff;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+:host ::ng-deep .p-card .p-card-header {
+  padding: 1.5rem 1.5rem 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+:host ::ng-deep .p-card .p-card-body {
+  padding: 1.5rem;
+}
+
+:host ::ng-deep .p-card .p-card-footer {
+  background-color: #f8f9fa;
+  border-top: 1px solid #f5f5f5;
+  padding: 1rem;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* Form layout */
+.field {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.field label {
+  min-width: 100px;
+  margin-bottom: 0;
+}
+
+.field .p-input-icon-left,
+.field .p-password {
+  flex: 1;
+  max-width: 280px;
+}
+
+/* Form input */
+:host ::ng-deep .p-inputtext,
+:host ::ng-deep .p-password input {
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+/* Icon positioning and input padding */
+:host ::ng-deep .p-input-icon-left > .p-inputtext {
+  padding-left: 2.5rem;
+}
+
+:host ::ng-deep .p-input-icon-left > i {
+  left: 0.75rem;
+  color: #64748b;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+:host ::ng-deep .p-inputtext:enabled:hover,
+:host ::ng-deep .p-password input:enabled:hover {
+  border-color: #6366f1;
+}
+
+:host ::ng-deep .p-inputtext:enabled:focus,
+:host ::ng-deep .p-password input:enabled:focus {
+  box-shadow: 0 0 0 2px #e9e9ff;
+  border-color: #6366f1;
+}
+
+/* Button */
+:host ::ng-deep .p-button {
+  background: #6366f1;
+  border-color: #6366f1;
+  transition: background-color 0.2s, border-color 0.2s;
+  border-radius: 6px;
+}
+
+:host ::ng-deep .p-button:hover {
+  background: #4f46e5;
+  border-color: #4f46e5;
+}
+
+:host ::ng-deep .p-button:focus {
+  box-shadow: 0 0 0 2px #e9e9ff;
+}
+
+/* Label */
+label {
+  margin-bottom: 0.5rem;
+  margin-right: 1rem;
+  font-weight: 500;
+  color: #4b5563;
+  display: inline-block;
+}
+
+/* Error message */
+:host ::ng-deep .p-message {
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+/* Demo credentials */
+.font-italic {
+  font-style: italic;
+  color: #64748b;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin-bottom: 0.25rem;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  :host ::ng-deep .p-card {
+    width: 90% !important;
+    margin: 0 auto;
+  }
+}
+
+/* Card Animation */
+:host ::ng-deep .p-card {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

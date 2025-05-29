@@ -1,0 +1,46 @@
+<div class="flex flex-column align-items-center pt-4" style="background-color: #f8f9fa; min-height: 100vh;">
+  <p-card header="User Profile" styleClass="w-30rem shadow-4">
+    <ng-container *ngIf="loading">
+      <div class="flex justify-content-center align-items-center" style="height: 200px;">
+        <i class="pi pi-spin pi-spinner" style="font-size: 2.5rem"></i>
+      </div>
+    </ng-container>
+    
+    <ng-container *ngIf="!loading && currentUser">
+      <div class="grid">
+        <div class="col-4 font-bold">
+          <i class="pi pi-user mr-2"></i>Username
+        </div>
+        <div class="col-8">{{ currentUser.username }}</div>
+        
+        <div class="col-4 font-bold">
+          <i class="pi pi-id-card mr-2"></i>Full Name
+        </div>
+        <div class="col-8">{{ currentUser.firstName }} {{ currentUser.lastName }}</div>
+        
+        <div class="col-4 font-bold">
+          <i class="pi pi-envelope mr-2"></i>Email
+        </div>
+        <div class="col-8">{{ currentUser.email }}</div>
+        
+        <div class="col-4 font-bold">
+          <i class="pi pi-shield mr-2"></i>Role
+        </div>
+        <div class="col-8">
+          <p-tag [severity]="currentUser.role === Role.Admin ? 'danger' : 'info'" [value]="currentUser.role"></p-tag>
+        </div>
+      </div>
+    </ng-container>
+    
+    <ng-template pTemplate="footer">
+      <div class="flex justify-content-between align-items-center">
+        <p-button 
+          label="Sign Out" 
+          icon="pi pi-sign-out" 
+          (onClick)="logout()"
+          iconPos="right"
+        ></p-button>
+      </div>
+    </ng-template>
+  </p-card>
+</div>

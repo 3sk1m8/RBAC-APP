@@ -1,0 +1,68 @@
+<div class="flex justify-content-center align-items-center" style="height: 100vh; background-color: #f8f9fa;">
+  <p-card header="Welcome" styleClass="w-30rem shadow-4">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="field">
+        <label for="username" class="block">Username</label>
+        <div class="p-input-icon-left w-full">
+          <i class="pi pi-user"></i>
+          <input 
+            id="username" 
+            type="text" 
+            pInputText 
+            formControlName="username" 
+            class="w-full" 
+            placeholder="Enter your username"
+            [ngClass]="{ 'ng-invalid ng-dirty': submitted && f['username'].errors }"
+          />
+        </div>
+        <small *ngIf="submitted && f['username'].errors?.['required']" class="p-error block mt-1">Username is required</small>
+      </div>
+      
+      <div class="field mt-4">
+        <label for="password" class="block">Password</label>
+        <p-password 
+          id="password" 
+          formControlName="password" 
+          [toggleMask]="true"
+          styleClass="w-full" 
+          placeholder="Enter your password"
+          [ngClass]="{ 'ng-invalid ng-dirty': submitted && f['password'].errors }"
+          [feedback]="false"
+        ></p-password>
+        <small *ngIf="submitted && f['password'].errors?.['required']" class="p-error block mt-1">Password is required</small>
+      </div>
+      
+      <div *ngIf="errorMessage" class="mt-4">
+        <p-message severity="error" [text]="errorMessage"></p-message>
+      </div>
+      
+      <div class="flex justify-content-end mt-4">
+        <p-button 
+          type="submit" 
+          label="Sign In" 
+          icon="pi pi-sign-in" 
+          [loading]="loading"
+          iconPos="right"
+        ></p-button>
+      </div>
+    </form>
+
+    <ng-template pTemplate="footer">
+      <div class="flex flex-column align-items-center gap-2">
+        <div class="font-italic text-sm">Demo credentials</div>
+        <div class="flex flex-column gap-1">
+          <div class="text-sm flex align-items-center gap-1">
+            <i class="pi pi-user-plus"></i>
+            <span>Admin: username=admin, password=admin</span>
+          </div>
+          <div class="text-sm flex align-items-center gap-1">
+            <i class="pi pi-user"></i>
+            <span>User: username=user, password=user</span>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </p-card>
+
+  <p-toast position="top-right"></p-toast>
+</div>
